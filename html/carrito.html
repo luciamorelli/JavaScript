@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+  
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://kit.fontawesome.com/bb0c951223.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+     
+      <title>MI TIENDA </title>
+  </head>
+<body class="body__general">
+    <header>
+       <!--Header responsive-->
+            <nav class="navbar navbar-dark bg-dark" style="background-color: black !important;">
+              <div class="container-fluid" style="width: 80%;">
+                <a class="navbar-brand" href="index.html">MiTienda</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="relojes.html">Relojes</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="rinoneras.html">Riñoneras</a>
+                    </li>
+                  </ul>
+                  
+                </div>
+              </div>
+              <a type="button" href="carrito.html" class="btn btn-dark" style="width: 20%;background-color: black !important;"> <i class="fas fa-shopping-bag"></i></a>
+            </nav>
+    </header> 
+    <main>
+     <div class="main__tabla--carrito">
+      <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Productos</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+            </tr>
+          </thead>
+
+          <tbody class="tbody" id="tbody">
+           
+           
+         
+          <br><br>
+            <div class="row mx-4">
+              <div class="col">
+                <h3 class="itemCartTotal text-white">Total: 0</h3>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button class="btn btn-success">COMPRAR</button>
+              </div>
+            </div>
+          </tbody>
+      </table>
+     </div>
+
+    </main>
+    <script src="../js/script.js"></script>
+    <!--Popper-->    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+   <!--JQuery-->    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </body>
+
+</html>

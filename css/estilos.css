@@ -1,0 +1,293 @@
+*{
+    font-family: 'Alata', sans-serif;
+}
+.body__general{
+    background-color: black;
+}
+.main__contenedor{
+    display: flex;
+    
+}
+
+.main__contenedor--fotos{
+    width: 100vw;
+    height: 50wh;
+}
+
+.main__contenedor--relojes{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: black ;
+}
+.main__contenedor--relojes--img{
+    display: flex;
+    height: 100%;
+   
+}
+.main__contenedor--relojes--img img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.main__contenedor--relojes--button{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    
+    
+}
+.main__contenedor--relojes--button button{
+background-color: black;
+    color: white;
+    }
+
+    .main__contenedor--rinoneras{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black ;
+        }
+        .main__contenedor--rinoneras--img{
+            display: flex;
+            height: 100%;
+        
+        }
+        .main__contenedor--rinoneras--img img{
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .main__contenedor--rinoneras--button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            height: auto;
+            position:absolute;
+            
+        }
+        .main__contenedor--rinoneras--button button{
+        background-color: black;
+            color: white;}    
+
+        .header__badges button {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+      .card-body{
+          text-align: center;
+      }
+
+      .main__relojes--button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        
+      }
+      .main__relojes--button button{
+        background-color: black;
+        color: white;
+      }
+   
+      .featurette-divider{
+        margin: 20px;
+      }
+      .row.featurette{
+        margin: 20px;
+      }
+      @media (min-width: 700px){
+          .main__contenedor {
+              display: none;
+          }
+          .main__contenedor2{
+              display:block;
+          }
+      }
+      @media (max-width: 700px){
+        .main__contenedor2 {
+            display: none;
+        }}
+
+.main__relojes{
+    display: flex;
+}
+
+.main__relojes--productos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    
+    
+}
+.main__rinoneras--productos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    
+    
+}
+       
+.table__productos{
+  display: flex;
+}
+.table__productos > img{
+  width: 9rem;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+.table__cantidad > input{
+  width: 40px;
+  border: none;
+  outline: 0;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+
+/* POPUP */
+
+.overlay {
+	background: rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	visibility: hidden;
+}
+
+.overlay.active {
+	visibility: visible;
+}
+
+.popup {
+	background: #F8F8F8;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	padding: 20px;
+	text-align: center;
+	width: 600px;
+	
+	transition: .3s ease all;
+	transform: scale(0.7);
+	opacity: 0;
+}
+
+.popup .btn-cerrar-popup {
+	font-size: 16px;
+	line-height: 16px;
+	display: block;
+	text-align: right;
+	transition: .3s ease all;
+	color: #BBBBBB;
+}
+
+.popup .btn-cerrar-popup:hover {
+	color: #000;
+}
+
+.popup h3 {
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	opacity: 0;
+}
+
+.popup h4 {
+	font-size: 26px;
+	font-weight: 300;
+	margin-bottom: 40px;
+	opacity: 0;
+}
+
+.popup form .contenedor-inputs {
+	opacity: 0;
+}
+
+.popup form .contenedor-inputs input {
+	width: 100%;
+	margin-bottom: 20px;
+	height: 52px;
+	font-size: 18px;
+	line-height: 52px;
+	text-align: center;
+	border: 1px solid #BBBBBB;
+}
+
+.popup form .btn-submit {
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	border: none;
+	color: #fff;
+	background: #5E7DE3;
+	border-radius: 3px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	cursor: pointer;
+	transition: .3s ease all;
+}
+
+.popup form .btn-submit:hover {
+	background: rgba(94,125,227, .9);
+}
+
+.popup.active {	transform: scale(1); opacity: 1; }
+.popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
+.popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
+.popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
+
+@keyframes entradaTitulo {
+	from {
+		opacity: 0;
+		transform: translateY(-25px);
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes entradaSubtitulo {
+	from {
+		opacity: 0;
+		transform: translateY(25px);
+	}
+
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes entradaInputs {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+
+.hide{
+    display: none;
+}
