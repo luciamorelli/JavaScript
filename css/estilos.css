@@ -1,19 +1,41 @@
+/* INDEX*/ 
 *{
     font-family: 'Alata', sans-serif;
 }
+
+/* INDEX- BODY*/ 
 .body__general{
     background-color: black;
 }
+/* INDEX- HEADER*/
+.header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.navbar.navbar-expand-lg.navbar-dark.bg-dark{
+    display: flex;
+    width: 90%;
+}
+.dropdown{
+    display: flex;
+    width: 10%;
+    justify-content: center;
+}
+
+/* INDEX- MAIN*/
 .main__contenedor{
     display: flex;
     
 }
-
 .main__contenedor--fotos{
     width: 100vw;
     height: 50wh;
 }
 
+
+/*RELOJES- MAIN*/
 .main__contenedor--relojes{
 display: flex;
 flex-direction: column;

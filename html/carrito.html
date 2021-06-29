@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<head>
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <!--Fonts-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
@@ -9,73 +10,160 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--Font Awsome-->
       <script src="https://kit.fontawesome.com/bb0c951223.js" crossorigin="anonymous"></script>
+      <!--Css-->
       <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-     
-      <title>MI TIENDA </title>
-  </head>
-<body class="body__general">
-    <header>
-       <!--Header responsive-->
-            <nav class="navbar navbar-dark bg-dark" style="background-color: black !important;">
-              <div class="container-fluid" style="width: 80%;">
-                <a class="navbar-brand" href="index.html">MiTienda</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="relojes.html">Relojes</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="rinoneras.html">Riñoneras</a>
-                    </li>
-                  </ul>
-                  
-                </div>
-              </div>
-              <a type="button" href="carrito.html" class="btn btn-dark" style="width: 20%;background-color: black !important;"> <i class="fas fa-shopping-bag"></i></a>
-            </nav>
-    </header> 
-    <main>
-     <div class="main__tabla--carrito">
-      <table class="table table-dark table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Productos</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Cantidad</th>
-            </tr>
-          </thead>
+      <title>TLC </title>
 
-          <tbody class="tbody" id="tbody">
-           
-           
+</head>
+  <!--Body--> 
+  <body class="body__relojes"style="background-color: black;">
+    <!--Header-->
+    <header style="position: fixed; z-index: 100; left: 0; top: 0; width: 100%;">
+     <div class="header"> 
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <div class="container-fluid">
+         <a class="navbar-brand" href="index.html"> TLC</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+               <a class="nav-link " aria-current="page" href="index.html">Home</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="relojes.html">Relojes</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="rinoneras.html">Riñoneras</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="ofertas.html">Ofertas</a>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </nav>
+     <!--fin nav-->
+     <div class="dropdown">
+       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+         <i class="fas fa-shopping-bag"></i>
          
-          <br><br>
-            <div class="row mx-4">
-              <div class="col">
-                <h3 class="itemCartTotal text-white">Total: 0</h3>
-              </div>
-              <div class="col d-flex justify-content-end">
-                <button class="btn btn-success">COMPRAR</button>
-              </div>
-            </div>
-          </tbody>
-      </table>
+       </button>
+       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+         <table class="table table-dark table-striped">
+           <thead>
+             <tr>
+               <th scope="col">#</th>
+               <th scope="col">Productos</th>
+               <th scope="col">Precio</th>
+               <th scope="col">Cantidad</th>
+             </tr>
+           </thead>
+           <tbody class="tbody" id="lista">
+             <!--Aca van los productos seleccionados-->
+           </tbody>
+         </table>
+       </ul>
      </div>
+   </div>
+   </header> 
+   
+   
+   <main>
+    <div class="container"  style="padding-top: 60px; color: white;">
+        <div class="row mt-3">
+            <div class="col">
+                <h2 class="d-flex justify-content-center mb-3">Realizar Compra</h2>
+                <form id="procesar-pago" action="#" method="post">
+                    <div class="form-group row">
+                        <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+                        <div class="col-12 col-md-10">
+                            <input type="text" class="form-control" id="cliente"
+                                placeholder="Ingresa nombre cliente" name="destinatario">
+                        </div>
+                    </div>
+                    <div class="form-group row" >
+                        <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+                        <div class="col-12 col-md-10">
+                            <input type="text" class="form-control" id="correo" placeholder="Ingresa tu correo" name="cc_to">
+                        </div>
+                    </div>
 
-    </main>
-    <script src="../js/script.js"></script>
-    <!--Popper-->    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-   <!--JQuery-->    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  </body>
+                    <div id="carrito" class="form-group table-responsive" >
+                        <table class="table" id="lista-compra " >
+                            <thead style="color: white ;">
+                                <tr>
+                                    <th scope="col">Imagen</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Sub Total</th>
+                                    <th scope="col">Eliminar</th>
+                                </tr>
 
+                            </thead>
+                            <tbody id="lista-compra--carrito" style="color: white ;">
+
+                            </tbody>
+                            <tr style="color: white;">
+                                <th colspan="4" scope="col" class="text-right">SUB TOTAL :</th>
+                                <th scope="col">
+                                    <p id="subtotal"></p>
+                                </th>
+                                <!-- <th scope="col"></th> -->
+                            </tr>
+                            <tr style="color: white;">
+                                <th colspan="4" scope="col" class="text-right">IVA :</th>
+                                <th scope="col">
+                                    <p id="igv"></p>
+                                </th>
+                                <!-- <th scope="col"></th> -->
+                            </tr>
+                            <tr style="color: white;">
+                                <th colspan="4" scope="col" class="text-right">TOTAL :</th>
+                                <th scope="col">
+                                    <input id="total" name="monto" class="font-weight-bold border-0" readonly style="background-color: white;"></input>
+                                </th>
+                                <!-- <th scope="col"></th> -->
+                            </tr>
+
+                        </table>
+                    </div>
+
+                 
+
+                    <div class="row justify-content-between">
+                        <div class="col-md-4 mb-2">
+                            <a href="index.html" class="btn btn-info btn-block">Seguir comprando</a>
+                        </div>
+                        <div class="col-xs-12 col-md-4">
+                            <button href="#" class="btn btn-success btn-block" id="procesar-compra">Realizar compra</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</main>
+
+  
+    
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="../js/script.js"></script>
+<script src="../js/compra.js"></script>
+
+
+
+
+</body>
 </html>
