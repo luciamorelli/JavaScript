@@ -25,5 +25,29 @@ botonCierra.addEventListener('click', function(e){
 	popup.classList.remove('active');
 })
 
+//AJAX CON JQUERY tomar el email del usuario que se suscribe en Newsletter
+$('form.ajax').on('submit', function() {
+    var dato = $('form.ajax'),
+    url = dato.attr('action'),
+    type = dato.attr('method'),
+    info = {};
 
+    //buco sobre todos los elementos que tengan atributo name(me importa el email)
+    dato.find('[name]').each(function(index, value){
+        var dato =$(this),
+        nombre= dato.attr('name'),
+        valor= dato.val();
+
+        info[nombre] = valor;
+
+        $.post("https://jsonplaceholder.typicode.com/posts", info).done(function (respuesta, estado){
+
+            console.log("El usuario ingreso el mail:"+ info[nombre]);
+               console.log(estado);}  
+            );
+    
+    });
+    
+    return false;
+});
 

@@ -5,6 +5,14 @@ const alerta = document.querySelector('#alerta');
 const botonContinuar = document.querySelector('#continuar');
 const alertaCarroVacio = document.querySelector('#carroVacio');
 const listaCompra = document.getElementById("lista-compra--carrito");
+const carroVacio = document.getElementById("carro-vacio");
+const carroConCosas = document.getElementById("carro-cosas");
+const realizarCompra = document.getElementById('realizar-compra'); 
+const cliente = document.getElementById('cliente');
+const correo = document.getElementById('correo');
+
+$(carroVacio).show()
+$(carroConCosas).hide();
 $(alerta).hide();
 $(alertaCarroVacio).hide();
 
@@ -21,6 +29,21 @@ $('form.ajax').on('submit', function() {
     dato.find('[name]').each(function(index, value){
         var dato =$(this),
         nombre= dato.attr('name'),
+        valor= dato.val();
+
+        info[nombre] = valor;
+
+        $.post("https://jsonplaceholder.typicode.com/posts", info).done(function (respuesta, estado){
+
+            console.log("El usuario ingreso el mail:"+ info[nombre]);
+               console.log(estado);
+            alert("Gracias por suscribirte!")}  
+            );
+    
+    });
+    dato.find('[name1]').each(function(index, value){
+        var dato =$(this),
+        nombre= dato.attr('name1'),
         valor= dato.val();
 
         info[nombre] = valor;
@@ -46,16 +69,18 @@ class Carrito {
       //Delegado para agregar al carrito
       if(e.target.classList.contains('agregar-carrito')){
           const producto = e.target.parentElement.parentElement;
+          
+          alert("Agregaste un producto al carrito");
+         
+          
           //Enviamos el producto seleccionado para tomar sus datos
          this.leerDatosProducto(producto);
-      //Aumentar span
-         const botonSpan =document.querySelector('#span');
-        
-        for (let i = 0; i < 100; i++) {
-        let resultado = producto * i;
-        $(botonSpan).text([resultado]);;
-      }
-        }
+         $(carroVacio).hide();
+            $(carroConCosas).show();
+
+         }
+
+         
       }
 
  
@@ -78,7 +103,8 @@ leerDatosProducto(producto){
         });
 
         if(productosLS === infoProducto.id){ //NOS MUESTRE ESTOS DATOS SI SE DA ESTA COMPARACION
-          $(alerta).show();
+          alert("Ya agregaste este producto al carrito. Si quieres agregarlo de todas formas clickea en continuar." )
+            $(alerta).show();
           botonContinuar.onclick = () => {this.insertarCarrito(infoProducto)|| $(alerta).hide();};
           }
         else { // sino que lo muestre
@@ -87,6 +113,7 @@ leerDatosProducto(producto){
 
   
 }
+
   //muestra producto seleccionado en carrito
   insertarCarrito(producto){
       const row = document.createElement('tr');
@@ -102,11 +129,11 @@ leerDatosProducto(producto){
       `;
       listaProductos.appendChild(row);
     this.guardarProductosLocalStorage(producto);
-  }
-
- 
-
+   
+} 
   
+    
+ 
   
   //Eliminar el producto del carrito en el DOM
   eliminarProducto(e){
@@ -142,6 +169,7 @@ leerDatosProducto(producto){
   productos.push(producto);
   //Agregamos al LS
   localStorage.setItem('productos', JSON.stringify(productos));
+
 }
 
 
@@ -157,6 +185,7 @@ obtenerProductosLocalStorage(){
       productoLS = JSON.parse(localStorage.getItem('productos'));
   }
   return productoLS;
+ 
 }
   
 //leer ptos local storage cuando reiniciamos pagina
@@ -179,6 +208,7 @@ obtenerProductosLocalStorage(){
             `;
             listaProductos.appendChild(row);
         });
+      
     }
 
   
@@ -204,6 +234,7 @@ obtenerProductosLocalStorage(){
                 </td>
             `;
             listaCompra.appendChild(row);
+           
   
 
           });
@@ -239,12 +270,15 @@ vaciarLocalStorage(){
         e.preventDefault();
         if(this.obtenerProductosLocalStorage().length === 0){
           //Alerta 'El carrito está vacío, agrega algún producto'  
-          $(alertaCarroVacio).show();
+         alert("Tu carrito está vacio, agrega productos para continuar.");
         }
         else {
             location.href = "carrito.html";
         }
+       
+        
     }
+
   
  //Calcular montos
     calcularTotal(){
@@ -265,26 +299,26 @@ vaciarLocalStorage(){
         document.getElementById('total').value = "$/. " + total.toFixed(2);
     }
   }
-/*    obtenerEvento(e) {
-        e.preventDefault();
-        let id, cantidad, producto, productosLS;
-        if (e.target.classList.contains('cantidad')) {
-            producto = e.target.parentElement.parentElement;
-            id = producto.querySelector('a').getAttribute('data-id');
-            cantidad = producto.querySelector('input').value;
-            let actualizarMontos = document.querySelectorAll('#subtotales');
-            productosLS = this.obtenerProductosLocalStorage();
-            productosLS.forEach(function (productoLS, index) {
-                if (productoLS.id === id) {
-                    productoLS.cantidad = cantidad;                    
-                    actualizarMontos[index].innerHTML = Number(cantidad * productosLS[index].precio);
-                }    
-            });
-            localStorage.setItem('productos', JSON.stringify(productosLS));
-            
+
+//Realizar compra
+
+
+
+
+function procesarCompra() {
+    if (compra.obtenerProductosLocalStorage().length === 0) 
+    {  alert("Tu carrito esta vacio");
+        
+      }    
+ else if (cliente.value === '' || correo.value === '') {
+      alert("No completaste correctamente los campos");
         }
-        else {
-            console.log("click afuera");
-        }
-    }
-}*/
+else {
+    localStorage.clear();
+    window.location= "pedidorealizado.html";
+}
+  return false;
+      };
+
+
+realizarCompra.addEventListener('click', procesarCompra);

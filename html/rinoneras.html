@@ -49,38 +49,47 @@
    </nav>
    <!--fin nav-->
    <div class="dropdown">
-     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-       <i class="fas fa-shopping-bag"></i>
-       <span id="span" class="badge bg-secondary">0</span>
-     </button>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+      <i class="fas fa-shopping-bag"></i>
      
-     <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-       <table id="lista" class="tbody">
-           <thead>
-               <tr>
-                   <th>Imagen</th>
-                   <th>Nombre</th>
-                   <th>Precio</th>
-                   <th></th>
-               </tr>
-           </thead>
-           <tbody></tbody>
-       </table>
+    </button>
+    
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >    
+    <table class="table table-dark table-striped" id="carrito">
+            <thead id="carro-cosas">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Productos</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+              </tr>
+            </thead>
+            <tbody class="tbody" id="lista">
+              <!--Aca van los productos seleccionados-->
+            </tbody>
+          </table>
 
-       <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
-       <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
-           Compra</a>
-   </div>
+      <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+      <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+          Compra</a>
 
- </div>
- </header> 
 
- <!--Alerta carrito vacio-->
- <div id="carroVacio" class="alert alert-warning alert-dismissible fade show" role="alert">
-   <strong>Tu carrito está vacio, agrega productos para continuar.
-   </strong>
-   <button id="cerrar" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
- </div>
+  <!--Si no hay productos-->
+  <div class="card" style="width: 18rem; color: rgb(100, 27, 27);" id="carro-vacio">
+    <div class="card-body" style="display: flex; flex-direction: column;">
+      <h5 class="card-title">Carro de compras Vacio??</h5>
+      <h6 class="card-subtitle mb-2 text-muted"></h6>
+      <p class="card-text">Comenzá a agregar productos para realizar la compra.</p>
+      <a href="relojes.html" class="card-link" style="color: black; align-items: center;">Comprá Relojes</a>
+      <a href="rinoneras.html" class="card-link" style="color: black; align-items: center;">Comprá Riñoneras</a>
+    </div>
+  </div>
+
+</ul>
+</div>
+
+</header> 
+
 
 <!--Main-->
 <main style="background-color: black; padding-top: 60px;">
@@ -142,11 +151,11 @@
           <!-- Productos-->
           <div id="lista-productos" class="productos__contenedor" style="display: flex; flex-direction: column;">     
           <!-- TODOS LOS PRODUCTOS-->
-          <h3 id="todos" class="main__titulo--productos" style="background-color: black; color: white;"> Todos los productos </h3>
+          <h3 id="todos" class="main__titulo--productos" style="background-color: black; color: white;margin: 20px;font-size: 30px; overflow: hidden;"> Todos los productos </h3>
          
            <!-- MUJERES-->
-      <div class="productos__mujeres" style="display: flex;">       
-        <h3 id="mujeres" class="main__titulo--productos" style="background-color: black; color: white;"> Mujeres </h3>
+      <div class="productos__mujeres" style="display: flex; flex-direction: column;">       
+        <h3 id="mujeres" class="main__titulo--productos" style="background-color: black; color: white;margin: 20px;font-size: 30px; overflow: hidden;"> Mujeres </h3>
          <div class="main__relojes" style= "width: 100%; display: flex;">   
           <div   style="justify-content: space-between; margin: 50px;display: flex; flex-wrap: wrap;"  >
       <!--Producto 1-->
@@ -155,7 +164,7 @@
           <img class="card-img-top" id="img" src="../imagenes/rinoneras/9.jpg" class="card-img-top" alt="...">
           <h4 class="card-text"> Reloj 1</h4>
           <p class="precio"> 5000</p> 
-          <button id="button" data-id="1" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="17" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
          
         </div>
       </div>
@@ -166,7 +175,7 @@
         <img src="../imagenes/rinoneras/10.jpg" id="img" class="card-img-top" alt="...">
           <h4  class="card-text"> Reloj 2</h4 >
           <p class="precio"> 6000</p> 
-          <button id="button" data-id="2" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="18" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
   
@@ -177,7 +186,7 @@
         
           <h4  class="card-text"> Reloj 3</h4 >
           <p class="precio"> 7000</p> 
-          <button id="button" data-id="3" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="19" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
       <!--Producto 4-->
@@ -187,7 +196,7 @@
         
           <h4  class="card-text"> Reloj 4</h4 >
           <p class="precio"> 8000</p> 
-          <button id="button" data-id="4" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="20" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
   
@@ -198,7 +207,7 @@
         
           <h4  class="card-text"> Reloj 5</h4 >
           <p class="precio"> 9000</p> 
-          <button id="button" data-id="5" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="21" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
   
@@ -209,7 +218,7 @@
         
           <h4  class="card-text"> Reloj 6</h4 >
           <p class="precio"> 10000</p> 
-          <button id="button" data-id="6" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="22" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
   
@@ -220,7 +229,7 @@
         
           <h4  class="card-text"> Reloj 7</h4 >
           <p class="precio"> 11000</p> 
-          <button id="button" data-id="7" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="23" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
   
@@ -231,7 +240,7 @@
         
           <h4  class="card-text"> Reloj 8</h4 >
           <p class="precio"> 12000</p> 
-          <button id="button" data-id="8" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+          <button id="button" data-id="24" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
         </div>
       </div>
   
@@ -240,8 +249,8 @@
   </div>
   
             <!-- HOMBRES-->
-          <div class="productos__hombres" style="display: flex;">
-          <h3 id="hombres" class="main__titulo--productos" style="background-color: black; color: white;"> Hombres </h3>
+          <div class="productos__hombres"  style="display: flex;flex-direction: column;">
+          <h3 id="hombres" class="main__titulo--productos" style="background-color: black; color: white; margin: 20px;font-size: 30px; overflow: hidden;"> Hombres </h3>
            <div class="main__relojes" style=" width: 100%; display: flex;">   
             <div id="lista-productos"  style="justify-content: space-between; margin: 50px;display: flex; flex-wrap: wrap;"  >
         
@@ -251,7 +260,7 @@
             <img class="card-img-top" id="img" src="../imagenes/rinoneras/1.jpg" class="card-img-top" alt="...">
             <h4 class="card-text"> Riñonera 1</h4>
             <p class="precio"> 5000</p> 
-            <button id="button" data-id="1" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="25" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
            
           </div>
         </div>
@@ -262,7 +271,7 @@
           <img src="../imagenes/rinoneras/2.jpg" id="img" class="card-img-top" alt="...">
             <h4  class="card-text"> Riñonera 2</h4 >
             <p class="precio"> 6000</p> 
-            <button id="button" data-id="2" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="26" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
   
@@ -273,7 +282,7 @@
           
             <h4  class="card-text"> Riñonera 3</h4 >
             <p class="precio"> 7000</p> 
-            <button id="button" data-id="3" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="27" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
         <!--Producto 4-->
@@ -283,7 +292,7 @@
           
             <h4  class="card-text"> Riñonera 4</h4 >
             <p class="precio"> 8000</p> 
-            <button id="button" data-id="4" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="28" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
   
@@ -294,7 +303,7 @@
           
             <h4  class="card-text"> Riñonera 5</h4 >
             <p class="precio"> 9000</p> 
-            <button id="button" data-id="5" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="29" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
   
@@ -305,7 +314,7 @@
           
             <h4  class="card-text"> Riñonera 6</h4 >
             <p class="precio"> 10000</p> 
-            <button id="button" data-id="6" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="30" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
   
@@ -316,7 +325,7 @@
           
             <h4  class="card-text">Riñonera 7</h4 >
             <p class="precio"> 11000</p> 
-            <button id="button" data-id="7" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="31" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
   
@@ -327,7 +336,7 @@
           
             <h4  class="card-text"> Riñonera 8</h4 >
             <p class="precio"> 12000</p> 
-            <button id="button" data-id="8" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+            <button id="button" data-id="32" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
           </div>
         </div>
   
@@ -343,34 +352,34 @@
     <!--Footer/Bootstrap-->
   
     <footer class="bg-dark text-center text-white" style="position: relative;";>
-      <!-- Section: Form -->
-      <div class="container p-4 pb-0";>
-        <section class="form">
-          <form action="">
-            <div class="row d-flex justify-content-center">
-              <div class="col-auto">
-                <p class="pt-2">
-                  <p> Suscribite a nuestro Newsletter!</p>
-                </p>
-              </div>
-  
-              <!-- Email input -->
-              <div class="col-md-5 col-12">
-                <div class="form-outline form-white mb-4">
-                  <input type="email" name="email" id="form5Example2" class="form-control" placeholder="EMAIL" />    
-                </div>
-              </div>
-  
-              <!-- Submit button -->
-              <div class="col-auto">
-                <button type="submit" class="btn btn-outline-light mb-4">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </form>
-        </section>
+<!-- Section: Form -->
+<div class="container p-4 pb-0";>
+  <section class="form">
+    <form  method="POST" class="ajax">
+      <div class="row d-flex justify-content-center">
+        <div class="col-auto">
+          <p class="pt-2">
+            <p> Suscribite a nuestro Newsletter!</p>
+          </p>
+        </div>
+
+        <!-- Email input -->
+        <div class="col-md-5 col-12">
+          <div class="form-outline form-white mb-4">
+            <input type="email" name="email" id="form5Example2" class="form-control" placeholder="EMAIL" />    
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <div class="col-auto">
+          <button type="submit" id="submit" class="btn btn-outline-light mb-4">
+            Subscribe
+          </button>
+        </div>
       </div>
+    </form>
+  </section>
+</div>
     
       <div class="bg-dark text-center text-white">
         <div class="container p-4 pb-0">  
@@ -404,6 +413,7 @@
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="../js/popup.js"></script>
   <script src="../js/script.js"></script>
   <script src="../js/pedido.js"></script>
   <script src="../js/compra.js"></script>

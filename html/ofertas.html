@@ -51,38 +51,45 @@
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
         <i class="fas fa-shopping-bag"></i>
-        <span id="span" class="badge bg-secondary">0</span>
+       
       </button>
       
-      <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
-        <table id="lista" class="tbody">
-            <thead>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >    
+      <table class="table table-dark table-striped" id="carrito">
+              <thead id="carro-cosas">
                 <tr>
-                    <th>Imagen</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th></th>
+                  <th scope="col">#</th>
+                  <th scope="col">Productos</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
                 </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+              </thead>
+              <tbody class="tbody" id="lista">
+                <!--Aca van los productos seleccionados-->
+              </tbody>
+            </table>
 
         <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
         <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
             Compra</a>
+ 
+
+    <!--Si no hay productos-->
+    <div class="card" style="width: 18rem; color: rgb(100, 27, 27);" id="carro-vacio">
+      <div class="card-body" style="display: flex; flex-direction: column;">
+        <h5 class="card-title">Carro de compras Vacio??</h5>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text">Comenzá a agregar productos para realizar la compra.</p>
+        <a href="relojes.html" class="card-link" style="color: black; align-items: center;">Comprá Relojes</a>
+        <a href="rinoneras.html" class="card-link" style="color: black; align-items: center;">Comprá Riñoneras</a>
+      </div>
     </div>
 
-  </div>
-  </header> 
+  </ul>
+</div>
+
+</header> 
  
-  <!--Alerta carrito vacio-->
-  <div id="carroVacio" class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Tu carrito está vacio, agrega productos para continuar.
-    </strong>
-    <button id="cerrar" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  
-      
 
  <!--Main-->
 <main style="background-color: black; padding-top: 60px;">
@@ -106,7 +113,7 @@
         <!-- Productos-->
         <div id="lista-productos" class="productos__contenedor" style="display: flex; flex-direction: column;">     
         <!-- OFERTAS ESPECIALES-->
-        <h3 id="todos" class="main__titulo--productos" style="background-color: black; color: white;"> OFERTAS ESPECIALES </h3>
+        <h3 id="todos" class="main__titulo--productos" style="background-color: black; color: white;margin: 20px;font-size: 30px; overflow: hidden;"> OFERTAS ESPECIALES </h3>
        
          
     <div class="productos__mujeres" style="display: flex;">       
@@ -118,7 +125,7 @@
         <img class="card-img-top" id="img" src="../imagenes/relojes/1.1.jpg" class="card-img-top" alt="...">
         <h4 class="card-text"> Reloj PROMO </h4>
         <p class="precio"> 3000</p> 
-        <button id="button" data-id="1" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="33" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
        
       </div>
     </div>
@@ -129,7 +136,7 @@
       <img src="../imagenes/relojes/2.jpg" id="img" class="card-img-top" alt="...">
         <h4  class="card-text"> Reloj PROMO</h4 >
         <p class="precio"> 3000</p> 
-        <button id="button" data-id="2" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="34" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
 
@@ -140,7 +147,7 @@
       
         <h4  class="card-text"> Reloj PROMO</h4 >
         <p class="precio"> 4000</p> 
-        <button id="button" data-id="3" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="35" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
     <!--Producto 4-->
@@ -150,7 +157,7 @@
       
         <h4  class="card-text"> Reloj PROMO</h4 >
         <p class="precio"> 4000</p> 
-        <button id="button" data-id="4" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="36" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
 
@@ -161,7 +168,7 @@
       
         <h4  class="card-text"> Riñonera PROMO</h4 >
         <p class="precio"> 2000</p> 
-        <button id="button" data-id="5" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="37" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
 
@@ -172,7 +179,7 @@
       
         <h4  class="card-text"> Riñonera PROMO</h4 >
         <p class="precio"> 2000</p> 
-        <button id="button" data-id="6" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="38" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
 
@@ -183,7 +190,7 @@
       
         <h4  class="card-text"> Riñonera PROMO</h4 >
         <p class="precio"> 5000</p> 
-        <button id="button" data-id="7" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="39" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
 
@@ -194,7 +201,7 @@
       
         <h4  class="card-text">  Riñonera PROMO</h4 >
         <p class="precio"> 5000</p> 
-        <button id="button" data-id="8" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
+        <button id="button" data-id="40" class="btn btn-primary stretched-link agregar-carrito">Agregar al carrito</button>
       </div>
     </div>
 
@@ -208,34 +215,34 @@
   <!--Footer/Bootstrap-->
 
   <footer class="bg-dark text-center text-white" style="position: relative;";>
-    <!-- Section: Form -->
-    <div class="container p-4 pb-0";>
-      <section class="form">
-        <form action="">
-          <div class="row d-flex justify-content-center">
-            <div class="col-auto">
-              <p class="pt-2">
-                <p> Suscribite a nuestro Newsletter!</p>
-              </p>
-            </div>
+   <!-- Section: Form -->
+   <div class="container p-4 pb-0";>
+    <section class="form">
+      <form  method="POST" class="ajax">
+        <div class="row d-flex justify-content-center">
+          <div class="col-auto">
+            <p class="pt-2">
+              <p> Suscribite a nuestro Newsletter!</p>
+            </p>
+          </div>
 
-            <!-- Email input -->
-            <div class="col-md-5 col-12">
-              <div class="form-outline form-white mb-4">
-                <input type="email" id="form5Example2" class="form-control" placeholder="EMAIL" />    
-              </div>
-            </div>
-
-            <!-- Submit button -->
-            <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribe
-              </button>
+          <!-- Email input -->
+          <div class="col-md-5 col-12">
+            <div class="form-outline form-white mb-4">
+              <input type="email" name="email" id="form5Example2" class="form-control" placeholder="EMAIL" />    
             </div>
           </div>
-        </form>
-      </section>
-    </div>
+
+          <!-- Submit button -->
+          <div class="col-auto">
+            <button type="submit" id="submit" class="btn btn-outline-light mb-4">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
   
     <div class="bg-dark text-center text-white">
       <div class="container p-4 pb-0">  
@@ -269,6 +276,7 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="../js/popup.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/pedido.js"></script>
 <script src="../js/compra.js"></script>

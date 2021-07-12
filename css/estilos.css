@@ -1,26 +1,29 @@
 /* INDEX*/ 
 *{
     font-family: 'Alata', sans-serif;
+
 }
 
 /* INDEX- BODY*/ 
 .body__general{
     background-color: black;
+  
 }
 /* INDEX- HEADER*/
 .header{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    width: 100%;
+
 }
 
 .navbar.navbar-expand-lg.navbar-dark.bg-dark{
     display: flex;
-    width: 90%;
+    width: 100%;
 }
 .dropdown{
     display: flex;
-    width: 10%;
+    width: fit-content;
     justify-content: center;
 }
 
@@ -36,6 +39,7 @@
 
 
 /*RELOJES- MAIN*/
+
 .main__contenedor--relojes{
 display: flex;
 flex-direction: column;
@@ -186,7 +190,7 @@ background-color: black;
 /* POPUP */
 
 .overlay {
-	background: rgba(0,0,0,.3);
+	background: rgba(177, 77, 77, 0.3);
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -204,7 +208,7 @@ background-color: black;
 
 .popup {
 	background: #F8F8F8;
-	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 0px 5px 0px rgba(235, 167, 167, 0.3);
 	border-radius: 3px;
 	font-family: 'Montserrat', sans-serif;
 	padding: 20px;

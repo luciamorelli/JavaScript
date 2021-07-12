@@ -20,9 +20,9 @@
  <!--Body-->
 <body class="body__general">
       <!--Header-->
-      <header style="position: fixed; z-index: 100; left: 0; top: 0; width: 100%;">
-        <div class="header"> 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <header style="position: fixed; z-index: 100; left: 0; top: 0; width: 100%; ">
+        <div class="header" style= "width: 100%;"> 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style= "width: 100%;">
           <div class="container-fluid">
             <a class="navbar-brand" href="index.html"> TLC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,16 +45,18 @@
               </ul>
             </div>
           </div>
-        </nav>
+      
         <!--fin nav-->
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
             <i class="fas fa-shopping-bag"></i>
-            <span id="span" class="badge bg-secondary">0</span>
+            
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
+            
             <table class="table table-dark table-striped">
-              <thead>
+              <thead  id="carro-cosas">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Productos</th>
@@ -66,10 +68,22 @@
                 <!--Aca van los productos seleccionados-->
               </tbody>
             </table>
+
+          <!--Si no hay productos-->
+          <div class="card" style="width: 18rem; color: rgb(100, 27, 27);" id="carro-vacio">
+            <div class="card-body" style="display: flex; flex-direction: column;">
+              <h5 class="card-title">Carro de compras Vacio</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <p class="card-text">Comenzá a agregar productos para realizar la compra.</p>
+              <a href="relojes.html" class="card-link" style="color: black; align-items: center;">Comprá Relojes</a>
+              <a href="rinoneras.html" class="card-link" style="color: black; align-items: center;">Comprá Riñoneras</a>
+            </div>
+          </div>
           </ul>
         </div>
-      </div>
-      
+
+   
+    </nav>
       </header> 
     
     <!--Main-->
@@ -95,6 +109,7 @@
           <!--Espacio-->
           <div>
             <p>  </p>
+            <button id="botonabre" type="button" class="btn btn-dark">Suscribite </button>
           </div>
 
           <!--Card-->
@@ -105,7 +120,7 @@
             </div>
           </div>
           <!--Categorias-->
-          <div class="row row-cols-1 row-cols-md-3 g-4"style="padding: 20px;">
+          <div class="row row-cols-1 row-cols-md-3 g-4"style="padding: 20px;  ">
             <div class="col">
               <div class="card h-100">
                 <img src="../Imagenes/seccion3/700.jpg" class="card-img-top" alt="...">
@@ -147,14 +162,14 @@
 
 <!--Pop Up-->
 <div class="overlay" id="capa">
-  <div class="popup" id="popup" style="position:absolute; z-index:1; background-color: rgb(63, 60, 60); color: white;">
-    <a href="#" id="botoncierra" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+  <div class="popup" id="popup" style="position:absolute; z-index:1; background-color: rgb(100, 27, 27); color: white;">
+    <a href="#" id="botoncierra" cla ss="btn-cerrar-popup"><i class="fas fa-times"></i></a>
     <h3>SUSCRIBETE A NUESTRO NEWSLATTER</h3>
     <h4>Y RECIBE 10% OFF EN TU COMPRA.</h4>
-    <form action="">
-      <div class="contenedor-inputs">
+    <form  method="POST" class="ajax">
+      <div class="contenedor-inputs" >
         <input type="text" placeholder="Nombre">
-        <input type="email" placeholder="Correo">
+        <input type="email" name1="email"  placeholder="Correo">
       </div>
       <input id="suscribite" type="submit" class="btn-submit" value="Suscribite" style="background-color: black;">
     </form>

@@ -5,6 +5,7 @@ const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 const procesarPedidoBtn = document.getElementById('procesar-pedido');
 
 
+
 cargarEventos();
 
 function cargarEventos(){
@@ -25,5 +26,7 @@ function cargarEventos(){
 
     //Enviar pedido a otra pagina
     procesarPedidoBtn.addEventListener('click', (e)=>{carro.procesarPedido(e)});
+  
+
 
 }
