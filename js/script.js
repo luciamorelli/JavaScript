@@ -232,10 +232,8 @@ obtenerProductosLocalStorage(){
                 </td>
                 <td>${producto.titulo}</td>
                 <td>${producto.precio}</td>
-                <td>
-                    <input type="number" class="form-control cantidad" min="1" value=${producto.cantidad}>
-                </td>
-                <td id='subtotales'>${producto.precio * producto.cantidad}</td>
+                <td>${producto.cantidad} </td>
+                <td id='subtotales'>${producto.precio * "1"}</td>
                 <td>
                     <a href="#" class="borrar-producto fas fa-times-circle" style="font-size:30px" data-id="${producto.id}"></a>
                 </td>

@@ -56,7 +56,7 @@ $('form.ajax').on('submit', function() {
                capa.classList.remove('active'); //saco clase active
 	            popup.classList.remove('active');
               
-               setTimeout(function() { $('#modal-suscribite').modal('hide');}, 1500);
+               setTimeout(function() { $('#modal-suscribite').modal('hide');}, 1000);
             
             }  
             );
@@ -76,7 +76,7 @@ $('form.ajax').on('submit', function() {
                capa.classList.remove('active'); //saco clase active
                popup.classList.remove('active');
                
-               setTimeout(function() { $('#modal-suscribite').modal('hide');}, 1500);    
+               setTimeout(function() { $('#modal-suscribite').modal('hide');}, 1000);    
 
             }  
             );
