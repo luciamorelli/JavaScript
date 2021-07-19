@@ -3,11 +3,9 @@
     font-family: 'Alata', sans-serif;
 
 }
-
 /* INDEX- BODY*/ 
 .body__general{
-    background-color: black;
-  
+    background-color: black; 
 }
 /* INDEX- HEADER*/
 .header{
@@ -129,19 +127,7 @@ background-color: black;
       .row.featurette{
         margin: 20px;
       }
-      @media (min-width: 700px){
-          .main__contenedor {
-              display: none;
-          }
-          .main__contenedor2{
-              display:block;
-          }
-      }
-      @media (max-width: 700px){
-        .main__contenedor2 {
-            display: none;
-        }}
-
+     
 .main__relojes{
     display: flex;
 }
@@ -187,9 +173,9 @@ background-color: black;
 }
 
 
-/* POPUP */
+/* SUSCRIBITE */
 
-.overlay {
+.capa {
 	background: rgba(177, 77, 77, 0.3);
 	position: fixed;
 	top: 0;
@@ -202,7 +188,7 @@ background-color: black;
 	visibility: hidden;
 }
 
-.overlay.active {
+.capa.active {
 	visibility: visible;
 }
 
@@ -269,7 +255,6 @@ background-color: black;
 	color: #fff;
 	background: #5E7DE3;
 	border-radius: 3px;
-	font-family: 'Montserrat', sans-serif;
 	font-size: 16px;
 	cursor: pointer;
 	transition: .3s ease all;
@@ -279,12 +264,25 @@ background-color: black;
 	background: rgba(94,125,227, .9);
 }
 
-.popup.active {	transform: scale(1); opacity: 1; }
-.popup.active h3 { animation: entradaTitulo .8s ease .5s forwards; }
-.popup.active h4 { animation: entradaSubtitulo .8s ease .5s forwards; }
-.popup.active .contenedor-inputs { animation: entradaInputs 1s linear 1s forwards; }
+.popup.active {	
+    transform: scale(1); 
+    opacity: 1; }
+.popup.active h3 { 
+    animation: Titulo .8s ease .5s forwards; }
+.popup.active h4 { 
+    animation: Subtitulo .8s ease .5s forwards; }
+.popup.active .contenedor-inputs { 
+    animation: Inputs 1s linear 1s forwards; }
+.hide{
+    display: none;
+}
+/*ANIMACIONES*/
+@keyframes Inputs {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
 
-@keyframes entradaTitulo {
+@keyframes Titulo {
 	from {
 		opacity: 0;
 		transform: translateY(-25px);
@@ -296,7 +294,7 @@ background-color: black;
 	}
 }
 
-@keyframes entradaSubtitulo {
+@keyframes Subtitulo {
 	from {
 		opacity: 0;
 		transform: translateY(25px);
@@ -306,14 +304,4 @@ background-color: black;
 		transform: translateY(0);
 		opacity: 1;
 	}
-}
-
-@keyframes entradaInputs {
-	from { opacity: 0; }
-	to { opacity: 1; }
-}
-
-
-.hide{
-    display: none;
 }

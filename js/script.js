@@ -1,7 +1,6 @@
-
+/*CONSTANTES*/
 const boton = document.querySelectorAll('#button');
 const listaProductos = document.getElementById('lista');
-const alerta = document.querySelector('#alerta');
 const botonContinuar = document.querySelector('#continuar');
 const alertaCarroVacio = document.querySelector('#carroVacio');
 const listaCompra = document.getElementById("lista-compra--carrito");
@@ -10,12 +9,17 @@ const carroConCosas = document.getElementById("carro-cosas");
 const realizarCompra = document.getElementById('realizar-compra'); 
 const cliente = document.getElementById('cliente');
 const correo = document.getElementById('correo');
+const modalSuscribite = document.getElementById("modal-suscribite");
+const botonCerrarModal= document.getElementById("cerrar-suscribite");
+const modalProducto = document.getElementById("modal-producto");
+const modalContinuar = document.getElementById("modal-continuar");
+const botonCerrarModalContinuar= document.getElementById("cerrar-continuar");
+const modalCarrito = document.getElementById("modal-carrito");
+const modalVacio = document.getElementById("modal-vacio");
 
 $(carroVacio).show()
-$(carroConCosas).hide();
-$(alerta).hide();
+$(carroConCosas).hide();;
 $(alertaCarroVacio).hide();
-
 
 
 //AJAX CON JQUERY tomar el email del usuario que se suscribe en Newsletter
@@ -37,7 +41,9 @@ $('form.ajax').on('submit', function() {
 
             console.log("El usuario ingreso el mail:"+ info[nombre]);
                console.log(estado);
-            alert("Gracias por suscribirte!")}  
+               $('#modal-suscribite').modal('toggle');
+               setTimeout(function() { $('#modal-suscribite').modal('hide');  }, 1000);    
+            }  
             );
     
     });
@@ -51,14 +57,15 @@ $('form.ajax').on('submit', function() {
         $.post("https://jsonplaceholder.typicode.com/posts", info).done(function (respuesta, estado){
 
             console.log("El usuario ingreso el mail:"+ info[nombre]);
-               console.log(estado);}  
+               console.log(estado);
+               $('#modal-suscribite').modal('toggle');
+               setTimeout(function() { $('#modal-suscribite').modal('hide');  }, 1000);   }  
             );
     
     });
     
     return false;
 });
-
 
 //Carrito
 class Carrito {
@@ -70,15 +77,20 @@ class Carrito {
       if(e.target.classList.contains('agregar-carrito')){
           const producto = e.target.parentElement.parentElement;
           
-          alert("Agregaste un producto al carrito");
+          $('#modal-producto').modal('toggle'); 
+         setTimeout(function() { $('#modal-producto').modal('hide');  }, 1000); 
+         
          
           
           //Enviamos el producto seleccionado para tomar sus datos
          this.leerDatosProducto(producto);
          $(carroVacio).hide();
-            $(carroConCosas).show();
+        $(carroConCosas).show();
+
+
 
          }
+         
 
          
       }
@@ -94,19 +106,20 @@ leerDatosProducto(producto){
           cantidad: 1
         }
       
-        let productosLS; //CUANDO CLICLKEE VARIAS VECES ME SUME EN CANTIDADES
+        let productosLS; 
         productosLS = this.obtenerProductosLocalStorage();
         productosLS.forEach(function (productoLS){
             if(productoLS.id === infoProducto.id){
-                productosLS = productoLS.id; //SI COINCIDE EL PRODUCTO SELECCIONAL CON ID 
+                productosLS = productoLS.id; //SI COINCIDE EL PRODUCTO SELECCIONADO CON ID 
             }
         });
 
         if(productosLS === infoProducto.id){ //NOS MUESTRE ESTOS DATOS SI SE DA ESTA COMPARACION
-          alert("Ya agregaste este producto al carrito. Si quieres agregarlo de todas formas clickea en continuar." )
-            $(alerta).show();
-          botonContinuar.onclick = () => {this.insertarCarrito(infoProducto)|| $(alerta).hide();};
-          }
+            $('#modal-continuar').modal('toggle');  
+          
+          botonContinuar.onclick = () => {this.insertarCarrito(infoProducto)|| $('#modal-continuar').modal('hide');};
+          
+            }
         else { // sino que lo muestre
            this.insertarCarrito(infoProducto);
     }
@@ -131,10 +144,7 @@ leerDatosProducto(producto){
     this.guardarProductosLocalStorage(producto);
    
 } 
-  
-    
- 
-  
+   
   //Eliminar el producto del carrito en el DOM
   eliminarProducto(e){
     e.preventDefault();
@@ -171,7 +181,6 @@ leerDatosProducto(producto){
   localStorage.setItem('productos', JSON.stringify(productos));
 
 }
-
 
 //Comprobar que hay elementos en el LS
 obtenerProductosLocalStorage(){
@@ -210,8 +219,6 @@ obtenerProductosLocalStorage(){
         });
       
     }
-
-  
 
 //Mostrar los productos guardados en el LS en carrito.html
     leerLocalStorageCompra(){
@@ -263,14 +270,13 @@ vaciarLocalStorage(){
   localStorage.clear();
 }
 
-
-
 //Procesar pedido
     procesarPedido(e){
         e.preventDefault();
         if(this.obtenerProductosLocalStorage().length === 0){
-          //Alerta 'El carrito está vacío, agrega algún producto'  
-         alert("Tu carrito está vacio, agrega productos para continuar.");
+           //modal
+           $('#modal-vacio').modal('toggle');
+           setTimeout(function() { $('#modal-vacio').modal('hide');  }, 1500);
         }
         else {
             location.href = "carrito.html";
@@ -278,8 +284,6 @@ vaciarLocalStorage(){
        
         
     }
-
-  
  //Calcular montos
     calcularTotal(){
         let productosLS;
@@ -299,19 +303,17 @@ vaciarLocalStorage(){
         document.getElementById('total').value = "$/. " + total.toFixed(2);
     }
   }
-
 //Realizar compra
-
-
-
-
 function procesarCompra() {
     if (compra.obtenerProductosLocalStorage().length === 0) 
-    {  alert("Tu carrito esta vacio");
+    {  $('#modal-vacio').modal('toggle');
+    setTimeout(function() { $('#modal-vacio').modal('hide');  }, 1500);
         
       }    
  else if (cliente.value === '' || correo.value === '') {
-      alert("No completaste correctamente los campos");
+       
+    $('#modal-carrito').modal('toggle');
+    setTimeout(function() { $('#modal-carrito').modal('hide');  }, 1500);
         }
 else {
     localStorage.clear();
@@ -319,6 +321,14 @@ else {
 }
   return false;
       };
-
-
 realizarCompra.addEventListener('click', procesarCompra);
+
+//Cerrar Modal
+botonCerrarModal.addEventListener('click', function(){ 
+    $('#modal-suscribite').modal('hide'); 
+
+});
+botonCerrarModalContinuar.addEventListener('click', function(){ 
+    $('#modal-continuar').modal('hide'); 
+
+});
